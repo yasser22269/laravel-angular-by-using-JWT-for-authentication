@@ -1,1 +1,28 @@
-<p>login works!</p>
+<div class="mt-4 col-8 offset-2">
+  <div class="card">
+    <div class="card-header">Register Here</div>
+    <div class="card-body">
+      <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+        <!-- [formGroup]="loginForm" -->
+        <div class="alert alert-danger" *ngIf="error">
+          {{error}}
+        </div>
+        <h1 class="h3 mb-3 fw-normal">Please Login</h1>
+
+        <div class="form-floating">
+          <input type="email" [(ngModel)]="form.email" name="email" class="form-control" placeholder="Email">
+          <label for="floatingInput">Email address</label>
+        </div>
+        <br>
+        <div class="form-floating">
+          <input type="password" [(ngModel)]="form.password" name="password" class="form-control"
+            placeholder="Password">
+          <label for="floatingPassword">Password</label>
+        </div>
+        <button class="w-100 btn btn-lg btn-primary" type="submit">login</button>
+      </form>
+      <br>
+      <a routerLink="../signup" class="w-100 btn btn-lg btn-info">signUp</a>
+    </div>
+  </div>
+</div>
