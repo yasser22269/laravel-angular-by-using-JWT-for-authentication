@@ -9,7 +9,7 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  // User registration  : Observable<any>
+  private baseUrl = 'http://127.0.0.1:8000/api';
   register(user) {
     return this.http.post('http://127.0.0.1:8000/api/signup', user);
   }
@@ -22,5 +22,13 @@ export class AuthService {
   // Access user profile
   profileUser() {
     return this.http.get('http://127.0.0.1:8000/api/user-profile');
+  }
+
+  sendPasswordResetLink(data) {
+    return this.http.post(`http://127.0.0.1:8000/api/sendPasswordResetLink`, data)
+  }
+  
+  changePassword(data) {
+    return this.http.post(`${this.baseUrl}/resetPassword`, data)
   }
 }
